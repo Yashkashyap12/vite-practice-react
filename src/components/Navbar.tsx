@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
-    return (
+    return (<>
         <nav className="bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
@@ -19,10 +19,13 @@ const Navbar = () => {
                         <NavLink to="/table" className="text-gray-700 hover:text-blue-600">DataTable</NavLink>
                         <NavLink to="/checkbox" className="text-gray-700 hover:text-blue-600">CheckBox</NavLink>
                         <NavLink to="/clock" className="text-gray-700 hover:text-blue-600">ClockColorChanging</NavLink>
+                        <NavLink to="/nested" className="text-gray-700 hover:text-blue-600">NestedRoutes</NavLink>
                     </div>
                 </div>
             </div>
         </nav>
+        {/* <Outlet /> */}
+    </>
     )
 }
 

@@ -6,19 +6,36 @@ import Navbar from "./components/Navbar";
 import Props from "./components/Props";
 import Condition from "./components/Condition";
 import MuiModal from "./components/MuiModal";
-import FormTable from "./components/FormTable"
+import FormTable from "./components/FormTable";
 import CheckBoxes from "./components/CheckBoxes";
 import DigitalClock from "./components/DigitalClock";
+import Nested from "./components/Nested";
+import Student from "./components/Student";
+import Department from "./components/Department";
+import Detail from "./components/Detail";
 
 const data = {
-  title:"Coming from props",
-  name:"Yash",
-  age:12,
-}
+  title: "Coming from props",
+  name: "Yash",
+  age: 12,
+};
 
 const App = () => {
   return (
     <>
+    {/* Layout and Index Routing */}
+      {/* <Routes>
+        <Route element={<Navbar />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/props" element={<Props data={data} />} />
+          <Route path="/conditional" element={<Condition />} />
+          <Route path="/modal" element={<MuiModal />} />
+          <Route path="/table" element={<FormTable />} />
+          <Route path="/checkbox" element={<CheckBoxes />} />
+          <Route path="/clock" element={<DigitalClock />} />
+        </Route>
+      </Routes> */}
+      
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -28,6 +45,11 @@ const App = () => {
         <Route path="/table" element={<FormTable />} />
         <Route path="/checkbox" element={<CheckBoxes />} /> 
         <Route path="/clock" element={<DigitalClock />} /> 
+        <Route path="/nested" element={<Nested />}>
+          <Route path="student" element={<Student />} />
+          <Route path="department" element={<Department />} />
+          <Route path="detail" element={<Detail />} />
+        </Route>
       </Routes>
     </>
   );
