@@ -16,7 +16,7 @@ const Nested = () => {
           <NavLink to="department">Department</NavLink>
           <NavLink to="detail">Detail</NavLink>
         </div>
-        {/* <Outlet /> */}
+        <Outlet />
       </div>
     </>
   );

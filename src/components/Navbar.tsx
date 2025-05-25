@@ -20,6 +20,8 @@ const Navbar = () => {
                         <NavLink to="/checkbox" className="text-gray-700 hover:text-blue-600">CheckBox</NavLink>
                         <NavLink to="/clock" className="text-gray-700 hover:text-blue-600">ClockColorChanging</NavLink>
                         <NavLink to="/nested" className="text-gray-700 hover:text-blue-600">NestedRoutes</NavLink>
+                        <NavLink to="/form" className="text-gray-700 hover:text-blue-600">Formik</NavLink>
+                        <NavLink to="/api" className="text-gray-700 hover:text-blue-600">ApiCall</NavLink>
                     </div>
                 </div>
             </div>
