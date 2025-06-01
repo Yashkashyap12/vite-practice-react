@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const UserAdd = () => {
   const [name, setName] = useState("");
@@ -31,6 +31,7 @@ const UserAdd = () => {
 
     console.log(name, place);
   };
+
   return (
     <div className="flex items-center justify-center mt-10">
       <div className="shadow-lg rounded-xl p-8 w-full max-w-sm border border-gray-400">
@@ -58,8 +59,8 @@ const UserAdd = () => {
           type="text"
           placeholder="Image Url"
         />
-
         <button
+          id="add"
           onClick={createUser}
           className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
         >

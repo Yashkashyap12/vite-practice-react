@@ -16,6 +16,9 @@ import Detail from "./components/Detail";
 import FormValid from "./components/FormValid";
 import ApiCall from "./components/ApiCall";
 import UserAdd from "./components/UserAdd";
+import EditUser from "./components/EditUser";
+import AxiosCall from "./components/axios/AxiosCall";
+import NotFoundPage from "./components/NotFoundPage";
 
 const data = {
   title: "Coming from props",
@@ -36,6 +39,7 @@ const App = () => {
         <Route path="/checkbox" element={<CheckBoxes />} />
         <Route path="/clock" element={<DigitalClock />} />
         <Route path="/form" element={<FormValid />} />
+        <Route path="/axios" element={<AxiosCall />} />
         <Route path="/nested" element={<Nested />}>
           <Route path="student" element={<Student />} />
           <Route path="department" element={<Department />} />
@@ -43,6 +47,8 @@ const App = () => {
         </Route>
         <Route path="/api" element={<ApiCall />} />
         <Route path="/adduser" element={<UserAdd />} />
+        <Route path="/edit/:id" element={<EditUser />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
