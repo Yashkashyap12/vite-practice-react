@@ -1,27 +1,44 @@
 import { CircularProgress } from "@mui/material";
 import axios from "../api";
 import { useEffect, useState } from "react";
-
+import CustomTextField from "../CustomTextField";
+// import {CustomTextField} from "../../components/form/input-elements/CustomeTextField"
 const AxiosCall = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getProducts();
   }, []);
 
-  async function getProducts() {
+  async function getProducts(filters = {}) {
     try {
       setLoading(true);
-      const response = await axios.get("/products");
-      setProducts(response.data.products);
+      let response;
+
+      if (filters.title) {
+        response = await axios.get(`/products/search?q=${filters.title}`);
+      } else {
+        response = await axios.get(`/products`);
+      }
+
+      setProducts(response.data.products.filter((x) => x?.title));
     } catch (error) {
-      setError(error.message);
+      setError(
+        error.response?.data?.message || error.message || "Something went wrong"
+      );
     } finally {
       setLoading(false);
     }
   }
+
+  const handleSearch = (event) => {
+    const value = event.target.value;
+    setSearch(value);
+    getProducts({ title: value });
+  };
 
   return (
     <>
@@ -29,10 +46,21 @@ const AxiosCall = () => {
       <h1 className="text-3xl text-center mt-8 font-bold text-gray-800">
         API Calling with Axios
       </h1>
+      <div className="flex justify-center mt-5">
+        <CustomTextField
+          value={search}
+          placeholder={"Search Product..."}
+          onChange={handleSearch}
+        />
+      </div>
       {loading ? (
         <div className="flex justify-center items-center h-64">
           <CircularProgress sx={{ color: "red" }} />
         </div>
+      ) : products.length === 0 ? (
+        <p className="text-center text-red-500 text-lg mt-10">
+          No products found.
+        </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-8">
           {products.map((product) => (
