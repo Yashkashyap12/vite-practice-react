@@ -23,6 +23,7 @@ const Navbar = () => {
                         <NavLink to="/form" className="text-gray-700 hover:text-blue-600">Formik</NavLink>
                         <NavLink to="/api" className="text-gray-700 hover:text-blue-600">ApiCall</NavLink>
                         <NavLink to="/axios" className="text-gray-700 hover:text-blue-600">ApiCallwithAxios</NavLink>
+                        <NavLink to="/imgupload" className="text-gray-700 hover:text-blue-600">ImageUploader</NavLink>
                     </div>
                 </div>
             </div>

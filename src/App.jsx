@@ -19,6 +19,7 @@ import UserAdd from "./components/UserAdd";
 import EditUser from "./components/EditUser";
 import AxiosCall from "./components/axios/AxiosCall";
 import NotFoundPage from "./components/NotFoundPage";
+import ImageUploader from "./components/imageUploader/ImageUploader";
 
 const data = {
   title: "Coming from props",
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/clock" element={<DigitalClock />} />
         <Route path="/form" element={<FormValid />} />
         <Route path="/axios" element={<AxiosCall />} />
+        <Route path="/imgupload" element={<ImageUploader />} />
         <Route path="/nested" element={<Nested />}>
           <Route path="student" element={<Student />} />
           <Route path="department" element={<Department />} />
